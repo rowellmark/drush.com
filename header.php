@@ -19,16 +19,76 @@
     <?php do_action('aios_neighborhoods_header'); ?>
 
 
-	<header class="header">
-		<div class="container">
-			<div class="logo">
-				<a href="<?php echo esc_url( home_url() ) ?>" class="site-name"><?php bloginfo('name'); ?></a>
-			</div>
+	<header class="header fixed w-100">
+		<div class="header-container flex justify-between items-center">
 
-			<nav class="navigation">
-				<?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'menu_id' => 'nav', 'theme_location' => 'primary-menu' ) ); ?>
-			</nav>
+
+			<div class="header-left">
+				
+				<div class="logo w-100">
+					<a href="<?= do_shortcode('[blogurl]')?>" class="site-name block w-100">
+						<img src="<?= do_shortcode('[ai_client_logo]')?>" alt="Rush Home" class="block w-100 h-auto" width="500" height="66">
+					</a>
+				</div>
+
+			</div><!-- end of header left -->
+
+			<div class="header-right flex items-center">
+				<nav class="navigation">
+					<?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'menu_id' => 'nav', 'theme_location' => 'primary-menu', 'menu_class' => 'flex items-center' ) ); ?>
+				</nav><!-- end of navigation -->
+				<div class="expanded-menu-bttn">
+					<span></span>
+					<span></span>
+					<span></span>
+					<i>menu</i>
+				</div><!-- end expanded button -->
+			</div><!-- end of header right -->
+
 		</div>
+	</header>
+
+	<header class="expandedMenuWrapper fixed h-100 w-100">
+		<div class="expandedMenuContainer absolute h-100">
+			<div class="expandedMenuClose absolute">
+				<i class="ai-font-close-c"></i>
+				<span>CLOSE</span>
+			</div>
+			<div class="expandedMenuHolder relative">
+
+				<div class="expandedMenuLogo">
+					<a href="<?= do_shortcode('[blogurl]')?>" class="site-name block w-100">
+						<img src="<?= do_shortcode('[ai_client_ip_logo]')?>" alt="Rush Home" class="block w-100 h-auto" width="500" height="66">
+					</a>
+				</div><!-- end of logo -->
+				<nav class="expandedMenuNav">
+					<?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'menu_id' => 'expandedNav', 'theme_location' => 'secondary-menu') ); ?>
+				</nav><!-- end of navigation -->
+				<div class="expandedMenuContactInfo">
+					<ul class="flex flex-wrap-wrap justify-between">
+						<li>
+							<i class="ai-font-location-c"></i>
+							<span><?= do_shortcode('[ai_client_address]')?></span>
+						</li>
+						<li>
+							<i class="ai-font-phone"></i>
+							<span><?= do_shortcode('[ai_client_phone]{default-phone}[/ai_client_phone]')?></span>
+						</li>
+						<li>
+							<i class="ai-font-clock"></i>
+							<span>Mon - Fri 8:30 AM to 5 PM <br>
+								Sat - 9 AM to 12 PM</span>
+						</li>
+
+						<li>
+							<i class="ai-font-envelope-filled-a"></i>
+							<span><?= do_shortcode('[ai_client_email]{default-email}[/ai_client_email]')?></span>
+						</li>
+
+					</ul>
+				</div><!-- end of contact info -->
+			</div><!-- end of menu holder -->
+		</div><!-- end of expanded menu container -->
 	</header>
 
 	<main>

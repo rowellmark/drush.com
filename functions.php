@@ -31,9 +31,11 @@ add_action( 'widgets_init', 'register_ai_child_starter_theme_sidebars', 11 );
 function ai_starter_theme_enqueue_child_assets() {
 
 	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
-
+	wp_enqueue_style('mcustomscrollbar-style', 'https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css');
 
 	/* Enqueue my scripts */
+	wp_enqueue_script('mcustomscrollbar-script', 'https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js');
+	wp_enqueue_script('custom-double-tap', get_stylesheet_directory_uri(). '/js/aios-double-tap.js');
 	wp_enqueue_script('aios-starter-theme-child-script', get_stylesheet_directory_uri(). '/js/scripts.js');
 
 }
@@ -61,3 +63,4 @@ add_filter( 'nav_menu_link_attributes', 'ai_starter_theme_add_menu_link_attribut
 if ( ! isset( $content_width ) ) {
 	$content_width = 960;
 }
+add_filter( 'show_admin_bar', '__return_false' );
