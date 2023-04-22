@@ -10,10 +10,13 @@
 			BurgerMenu();
 			floating_scroll();
 
+			runPopup();
+			
 			/// specific for homepage
 			if ($(b).hasClass('home')) {
-				initCounter();
 				runProperties();
+				runCommunities();
+				initCounter();
 			}
 
 			AOS.init({ disable: 'mobile' });
@@ -61,7 +64,7 @@
 				$expandedMenuContainer.mCustomScrollbar();
 
 				$expandedNav.splitNav({
-					"splitCount" : 4
+					"splitCount": 4
 				});
 			});
 
@@ -70,10 +73,8 @@
 
 			$expandedMenuContainer.hover(function () {
 				mouse_is_inside = true;
-				console.log('inside');
 			}, function () {
 				mouse_is_inside = false;
-				console.log('outside');
 			});
 
 
@@ -96,6 +97,47 @@
 			});
 
 		}
+
+		runPopup = () => {
+			
+
+			$popupWrapper = $('.globPopup');
+			$popupContainer = $('.globPopupContainer');
+			$popupClose = $('.globPopupClose');
+			$popupNothanks = $('.no-thanks-close')
+
+			let mouse_is_inside = false;
+
+
+			setTimeout(function () {
+				$popupWrapper.fadeIn();
+			}, 10000);
+
+
+
+			$popupContainer.hover(function () {
+				mouse_is_inside = true;
+			}, function () {
+				mouse_is_inside = false;
+			});
+
+			$popupWrapper.on('click', function () {
+				if (mouse_is_inside == false) {
+					$popupWrapper.fadeOut();
+				}
+			});
+
+
+			$popupWrapper.on('click', function () {
+				$popupWrapper.fadeOut();
+			});
+			$popupNothanks.on('click', function () {
+				$popupWrapper.fadeOut();
+			});
+
+
+		}
+
 		floating_scroll = () => {
 
 			const callback = (entries) => {
@@ -129,6 +171,36 @@
 			});
 
 		}
+		runProperties = () => {
+
+			var $featuredListings = new Splide('.hpFlLists', {
+				type: 'loop',
+				perPage: 3,
+				arrows: false,
+				pagination: false
+			});
+
+			$featuredListings.mount();
+
+			$('.fl-prev').on('click', function () {
+				$featuredListings.go('<')
+			});
+			$('.fl-next').on('click', function () {
+				$featuredListings.go('>')
+			});
+		}
+
+		runCommunities = () => {
+
+			$communities = $('.hpFeaturedCommunitiesList');
+
+
+			$communities.hover(function () {
+				
+			}, function () {
+				
+			});
+		}
 		commaSeparateNumber = (val) => {
 			while (/(\d+)(\d{3})/.test(val.toString())) {
 				val = val.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
@@ -151,10 +223,10 @@
 				var shown = false;
 
 				$(w).scroll(function () {
-					var myelement = $(".hp-performance-number");
+					var myelement = $(".hpWhyWorkWithUs");
 					if (isScrolledIntoView(myelement)) {
 						if (!shown) {
-							$(".fn-lists em").each(function () {
+							$(".wwu-lists em").each(function () {
 								var $this = $(this);
 								const limit = parseInt($this.attr("data-number"));
 
@@ -176,17 +248,6 @@
 			}
 		}
 
-		runProperties = () => {
-
-			var $featuredListings = new Splide('.hpFlLists', {
-				type: 'loop',
-				perPage: 3,
-				arrows: false,
-				pagination: false
-			});
-
-			$featuredListings.mount();
-		}
 
 		/**
 		 * Instant Initiate
