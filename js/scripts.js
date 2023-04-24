@@ -9,7 +9,6 @@
 			onScrollFixed();
 			BurgerMenu();
 			floating_scroll();
-
 			runPopup();
 			
 			/// specific for homepage
@@ -117,8 +116,10 @@
 
 			$popupContainer.hover(function () {
 				mouse_is_inside = true;
+				
 			}, function () {
 				mouse_is_inside = false;
+				
 			});
 
 			$popupWrapper.on('click', function () {
@@ -128,7 +129,7 @@
 			});
 
 
-			$popupWrapper.on('click', function () {
+			$popupClose.on('click', function () {
 				$popupWrapper.fadeOut();
 			});
 			$popupNothanks.on('click', function () {
@@ -177,7 +178,13 @@
 				type: 'loop',
 				perPage: 3,
 				arrows: false,
-				pagination: false
+				pagination: false,
+				breakpoints: {
+					991: {
+						perPage: 1,
+					},
+					
+				},
 			});
 
 			$featuredListings.mount();

@@ -26,9 +26,7 @@
 			<div class="header-left">
 				
 				<div class="logo w-100">
-					<a href="<?= do_shortcode('[blogurl]')?>" class="site-name block w-100">
-						<img src="<?= do_shortcode('[ai_client_logo]')?>" alt="Rush Home" class="block w-100 h-auto" width="500" height="66">
-					</a>
+					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Header: Logo") ) : ?><?php endif ?>
 				</div>
 
 			</div><!-- end of header left -->
@@ -57,35 +55,13 @@
 			<div class="expandedMenuHolder relative">
 
 				<div class="expandedMenuLogo">
-					<a href="<?= do_shortcode('[blogurl]')?>" class="site-name block w-100">
-						<img src="<?= do_shortcode('[ai_client_ip_logo]')?>" alt="Rush Home" class="block w-100 h-auto" width="500" height="66">
-					</a>
+					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Expanded Menu: Logo") ) : ?><?php endif ?>
 				</div><!-- end of logo -->
 				<nav class="expandedMenuNav">
 					<?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'menu_id' => 'expandedNav', 'theme_location' => 'secondary-menu') ); ?>
 				</nav><!-- end of navigation -->
 				<div class="expandedMenuContactInfo">
-					<ul class="flex flex-wrap-wrap justify-between">
-						<li>
-							<i class="ai-font-location-c"></i>
-							<span><?= do_shortcode('[ai_client_address]')?></span>
-						</li>
-						<li>
-							<i class="ai-font-phone"></i>
-							<span><?= do_shortcode('[ai_client_phone]{default-phone}[/ai_client_phone]')?></span>
-						</li>
-						<li>
-							<i class="ai-font-clock"></i>
-							<span>Mon - Fri 8:30 AM to 5 PM <br>
-								Sat - 9 AM to 12 PM</span>
-						</li>
-
-						<li>
-							<i class="ai-font-envelope-filled-a"></i>
-							<span><?= do_shortcode('[ai_client_email]{default-email}[/ai_client_email]')?></span>
-						</li>
-
-					</ul>
+					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Expanded Menu: Contact Info") ) : ?><?php endif ?>
 				</div><!-- end of contact info -->
 			</div><!-- end of menu holder -->
 		</div><!-- end of expanded menu container -->

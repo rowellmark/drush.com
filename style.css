@@ -321,6 +321,7 @@ body{
             align-items: center;
             font-weight: 600;
             text-transform: uppercase;
+            font-size: 1.125vw;
         }
             .default-title h2 span::before{
                 width: 4.500vw;
@@ -337,6 +338,7 @@ body{
             font-style: normal;
             font-family: var(--font-family-title);
             font-weight: 700;
+            padding: 0.4vw 0 0;
         }
 
 /* Title */
@@ -885,6 +887,9 @@ body{
     right: 1.063vw;
 }
 
+    .floating-smi > div{
+        height: 100%;
+    }
     .floating-smi ul{
 
     }
@@ -935,7 +940,7 @@ body{
 /* Floating SMI */
 /* Hero */
 #hero{
-
+    
 }
     /* Slideshow */
     #hero .slideshow{
@@ -1064,10 +1069,11 @@ body{
                         }
         #hero .hpQuickSearch span{
             display: block;
-            font-size: 0.75vw;
+            font-size: max(0.75vw, 12px);
             letter-spacing: 0.145em;
             padding: 1.250vw 0 0;
         }
+        
     /* Quick Search */
     /* Scroller */
     #hero .hpScrollTo{
@@ -1075,6 +1081,7 @@ body{
         left: 50%;
         z-index: 20;
         color: #fff;
+        transform: translate(-50%, 0);
     }
         #hero .hpScrollTo a{
             color: #fff;
@@ -1223,7 +1230,7 @@ body{
                     }
                         #hpFeaturedListings .hpFlList a .hpFlContent h5 i{
                             font-style: normal;
-                            margin-top: 10px;
+                            margin-top: 0.625vw;
                         }
                     #hpFeaturedListings .hpFlList a .hpFlContent ul{
                         display: flex;
@@ -1232,6 +1239,8 @@ body{
                         #hpFeaturedListings .hpFlList a .hpFlContent ul li{
                             text-align: center;
                             padding: 0 1vw;
+                            font-size: 0.75vw;
+                            letter-spacing: 0.05em;
                         }
                             #hpFeaturedListings .hpFlList a .hpFlContent ul li:first-child{
                                 padding-left: 0;
@@ -1239,8 +1248,8 @@ body{
                         #hpFeaturedListings .hpFlList a .hpFlContent ul li i{
                             display: block;
                             margin: 0 auto 0.688vw;
-                            width: 0.938vw;
-                            height: 0.813vw;
+                            width: max(0.938vw, 15px);
+                            height: max(0.813vw, 13px);
                             background-size: 100% 100% !important;
                         }
                             #hpFeaturedListings .hpFlList a .hpFlContent ul li i.flBeds{
@@ -1252,6 +1261,7 @@ body{
                             #hpFeaturedListings .hpFlList a .hpFlContent ul li i.flSqft{
                                 background: url(images/sqft.png) no-repeat 0 0 transparent;
                             }
+
                 #hpFeaturedListings .hpFlList a .flButton{
                     position: absolute;
                     bottom: -2.625vw;
@@ -1327,7 +1337,7 @@ body{
 /* Listings */
 /* Services */
 .hpServices{
-  
+    overflow: hidden;
 }
     .hpServices .hpServicesContainer{
         padding:  0 7.313vw;
@@ -1526,6 +1536,7 @@ body{
 /* Communities */
 .hpFeaturedCommunities{
     padding: 11.188vw 0 3.750vw;
+    overflow: hidden;
 }
     .hpFeaturedCommunities .hpFeaturedCommunitiesContainer{
         padding: 0 4.375vw;
@@ -1653,7 +1664,7 @@ body{
                                 opacity: 1;
                             }
 
-                            .hpFeaturedCommunitiesList:hover .hpFeaturedCommunitiesContent ul li a{
+                            .hpFeaturedCommunitiesList .hpFeaturedCommunitiesContent ul li a{
                                 transition: var(--transition);
                                 line-height: 2.2;
                                 letter-spacing: 0.15em;
@@ -1675,6 +1686,7 @@ body{
     background: url(images/exclusive-bg.jpg) no-repeat center top transparent;
     background-size: cover;
     padding: 2.813vw 0 0;
+    overflow: hidden;
 }
 
     .hpExclusiveAccess::after,
@@ -1875,6 +1887,7 @@ body{
 
                 .globContactForm .globFormWrap .cc_form_col span[data-name="inquiry"] .wpcf7-list-item label span{
                     margin-left: 0.938vw;
+                    font-size: 0.875vw;
                 }
                 .globContactForm .globFormWrap .cc_form_col span[data-name="inquiry"] input{
                     width: max(1.188vw, 19px) !important;
@@ -1882,8 +1895,9 @@ body{
                     display: inline-block;
                     align-items: center;
                     margin: 0 ;
+                    position: relative;
                 }
-
+                   
                 .globContactForm .globFormWrap .cf-submit{
                     padding: 2.750vw 0 0;
                 }
@@ -1907,6 +1921,7 @@ body{
                         }
             .use-floating-validation-tip .wpcf7-not-valid-tip {
                 position: absolute;
+                width: 100%;
           
             }
             .wpcf7 form .wpcf7-response-output{
@@ -2173,12 +2188,13 @@ body{
 /* Style .entry-title(post/page) and .archive-title(category/archive/etc) main headings (h1) */
 #content .entry-title,
 #content .archive-title {
-
+    font-family: var(--font-family-title);
+    font-size: 40px;
 }
 
 /* Styles for category/archive/search/etc subheadings (h2) */
 #content .archive-subtitle {
-
+    font-family: var(--font-family-title);
 }
 
 /* MEDIA QUERIES ARE AUTOMATICALLY REMOVED FROM THIS FILE, they must be placed in style-media-queries.css */
