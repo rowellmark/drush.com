@@ -64,7 +64,7 @@
 				$expandedMenuContainer.mCustomScrollbar();
 
 				$expandedNav.splitNav({
-					"splitCount": 4
+					"splitCount": 2
 				});
 			});
 
